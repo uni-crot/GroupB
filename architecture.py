@@ -85,8 +85,7 @@ while not finished:
             if event.key == pygame.K_BACKSPACE:
                 user_input = user_input[:-1]
             elif event.key == pygame.K_TAB:
-                if count == 1:
-                    number_w = int(user_input)
+                if count == 1:             number_w = int(user_input)
                     user_input = ''
                 elif count == 2:
                     number_l = int(user_input)

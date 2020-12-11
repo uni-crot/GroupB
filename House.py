@@ -4,7 +4,7 @@ import datetime
 pygame.init()
 FPS = 40
 
-# константы
+# константы, отрисовка экрана
 w = 1100
 h = 700
 screen = pygame.display.set_mode((w, h))
@@ -28,7 +28,7 @@ BLACK = (0, 0, 0)
 PINK = (200, 55, 150)
 
 # Функции
-def top(screen, width, length): #рисует дом сверху
+def top(screen, width, length): # рисует дом сверху
     if (number_l <= 0) or (number_w <= 0):
         return
     else:
@@ -36,7 +36,7 @@ def top(screen, width, length): #рисует дом сверху
         scoreText = myfont.render('Вид сверху', False, BLACK)
         screen.blit(scoreText, (start_x, 40))
 
-def front(screen, width, column_x): #рисует дом с торца
+def front(screen, width, column_x): # рисует дом с торца
     if (number_w <= 0) or (column_x < 0):
         return
     else:
@@ -47,7 +47,7 @@ def front(screen, width, column_x): #рисует дом с торца
         screen.blit(scoreText, (4*start_x+length, 40))
 
 
-def side(screen, length, column_y): #рисует дом с боковой стороны
+def side(screen, length, column_y): # рисует дом с боковой стороны
     if (number_l <= 0) or (column_y < 0):
         return
     else:
@@ -57,7 +57,7 @@ def side(screen, length, column_y): #рисует дом с боковой ст�
         scoreText = myfont.render('Вид с фасада', False, BLACK)
         screen.blit(scoreText, (start_x, 2*start_y+width-30))
 
-def draw(screen, width, length, column_x, column_y):
+def draw(screen, width, length, column_x, column_y): # рисует весь план дома
     top(screen, width, length)
     front(screen, width, column_x)
     side(screen, length, column_y)
@@ -84,7 +84,7 @@ while not finished:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE:
                 user_input = user_input[:-1]
-            elif event.key == pygame.K_TAB:
+            elif event.key == pygame.K_RETURN:
                 if count == 1:
                     number_w = int(user_input)
                     user_input = ''
@@ -114,12 +114,11 @@ while not finished:
     screen.blit(scoreText, (20, 670))
 
     # проверка на допустимые значения вводных данных
-    if (number_l <= 0) or (number_w <= 0) or (column_x < 0) or (
-            column_y < 0):
+    if (number_l <= 0) or (number_w <= 0) or (column_x < 0) or (column_y < 0):
         scoreText = myfont.render('Недопустимое значение', False, BLACK)
         screen.blit(scoreText, (600, 450))
 
-    # запись введеных значений в переменные (строка №87: Для подтверждения ввода значения в программе нажать клавишу TAB, у меня не получается присвоить это действие клавише ENTER)
+    # запись введеных значений в переменные
     elif count == 1:
         scoreText = myfont.render('Введите число спичек в ширину:', False, BLACK)
         screen.blit(scoreText, (600, 450))
