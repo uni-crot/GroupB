@@ -127,10 +127,10 @@ while not finished:
         scoreText = myfont.render('Введите число спичек в длину:', False, BLACK)
         screen.blit(scoreText, (600, 450))
     elif count == 3:
-        scoreText = myfont.render('Введите число колонн с торца:', False, BLACK)
+        scoreText = myfont.render('Введите число колонн спереди:', False, BLACK)
         screen.blit(scoreText, (600, 450))
     elif count == 4:
-        scoreText = myfont.render('Введите число колонн сбоку:', False, BLACK)
+        scoreText = myfont.render('Введите число колонн с фасада:', False, BLACK)
         screen.blit(scoreText, (600, 450))
 
     draw(screen, width, length, column_x, column_y)
